@@ -12,14 +12,14 @@ const ProjectsSection = () => {
                     <GridItem
                         title="Project 1 "
                         thumbnail={thumbFishWorkflow}
-                        href="https://www.youtube.com/watch?v=KKxhf50FIPI"
+                        href="#"
                         demo="#"
                         code="#"
                     />
                     <GridItem
                         title="Project 2"
                         thumbnail={thumbFishWorkflow}
-                        href="https://www.youtube.com/watch?v=1OFDMwDlnOE"
+                        href="#"
                         demo="#"
                         code="#"
                     />
@@ -30,14 +30,14 @@ const ProjectsSection = () => {
                     <GridItem
                         title="Project 1 "
                         thumbnail={thumbFishWorkflow}
-                        href="https://www.youtube.com/watch?v=KKxhf50FIPI"
+                        href="#"
                         demo="#"
                         code="#"
                     />
                     <GridItem
                         title="Project 2"
                         thumbnail={thumbFishWorkflow}
-                        href="https://www.youtube.com/watch?v=1OFDMwDlnOE"
+                        href="#"
                         demo="#"
                         code="#"
                     />
