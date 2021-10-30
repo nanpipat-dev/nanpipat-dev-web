@@ -7,7 +7,7 @@ import '../styles.css'
 function Website({ Component, pageProps, router }) {
   return (
     <ChakraProvider theme={theme}>
-<Fonts/>
+      <Fonts />
       <Layout router={router}>
         <Component {...pageProps} key={router.route} />
       </Layout>
@@ -15,4 +15,4 @@ function Website({ Component, pageProps, router }) {
   )
 }
 
-export default Website 
+export default Website

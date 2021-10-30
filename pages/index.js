@@ -31,13 +31,14 @@ import Paragraph from '../components/paragraph'
 import { ExpSection, ExpCompany, ExpYear } from '../components/exp'
 import ExperienceSection from '../components/section/experience'
 import ProjectsSection from '../components/section/projects'
+import ProfileImg from '../public/images/profile.jpg'
 
 const Page = () => {
     return (
         <Container maxWidth="100%">
         
             <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3} mb={6} align="center">
-                Hello, I&apos;m a full-stack developer in thailand~
+                Hello, I&apos;m a full-stack developer. You can call me "Top" ♥
             </Box>
             <Box display={{ md: 'flex' }}>
                 <Box flexGrow={1}>
@@ -47,7 +48,7 @@ const Page = () => {
                     <p>Full Stack Developer. </p>
                 </Box>
                 <Box flexShrink={0} mt={{ base: 4, md: 0 }} ml={{ md: 6 }} align="center">
-                    <Image borderColor="whiteAlpha.800" borderWidth={2} borderStyle="solid" maxWidth="100px" display="inline-block" borderRadius="full" src="https://pbs.twimg.com/profile_images/1271969083219537920/gnuJYABo.jpg" alt="" />
+                    <Image src="/images/profile.jpg" borderColor="whiteAlpha.800" borderWidth={2} borderStyle="solid" maxWidth="100px" display="inline-block" borderRadius="full"  alt="profile" />
                 </Box>
             </Box>
             <Section delay={0.1}>
@@ -81,6 +82,7 @@ const Page = () => {
                 <Heading as="h3" variant="section-title">
                     I ♥
                 </Heading>
+                <Image src="/images/cartoon.jpg" width={220} margin={7}/>
                 <Paragraph>
                     love to play music.
                 </Paragraph>
@@ -93,6 +95,7 @@ const Page = () => {
                 <Paragraph>
                     music is my life.
                 </Paragraph>
+                
             </Section>
             <Section delay={0.3}>
                 <Heading as="h3" variant="section-title">

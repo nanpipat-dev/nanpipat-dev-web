@@ -16,7 +16,6 @@ const Main = ({ children, router }) => {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Nanpipat Klinpratoom - Website</title>
-        <link rel="shortcut icon" href="/public/favicon.ico" />
       </Head>
 
       <Navbar path={router.asPath} />
