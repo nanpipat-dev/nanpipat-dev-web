@@ -18,36 +18,36 @@ import {
 const ExperienceSection = () => {
     return (
         <>
-            <Flex my={4}>
-                <Box w="260px">
+            <Grid my={4} templateColumns="repeat(5,  1fr)">
+                <GridItem colSpan={[2,1,1]}>
                     <Text fontWeight="bold" mr={2}>
                         Netcube Soft
                     </Text>
                     <Text fontSize="smaller" color="teal">
                         (2018 - 2021)
                     </Text>
-                </Box>
-                <Box>
+                </GridItem>
+                <GridItem colSpan={[3,4,4]}>
                     <Text>
                         Develop software, such as website, application, system, etc. Base language in Back End is C#,.NET Core, .NET Framework and Base Front End is Angular Framework.
                     </Text>
-                </Box>
-            </Flex>
-            <Flex my={4}>
-                <Box w="193px">
+                </GridItem>
+            </Grid>
+            <Grid my={4} templateColumns="repeat(5,  1fr)">
+                <GridItem colSpan={[2,1,1]}>
                     <Text fontWeight="bold" mr={2}>
                         Freelance
                     </Text>
                     <Text fontSize="smaller" color="teal">
                         (2018 - Present)
                     </Text>
-                </Box>
-                <Box>
+                </GridItem>
+                <GridItem colSpan={[3,4,4]}>
                     <Text>
                         Develop and Bug fixed Software , Application or Website by requirement. Don't expect language. Mostly is Web Developer
                     </Text>
-                </Box>
-            </Flex>
+                </GridItem>
+            </Grid>
         </>
 
     )

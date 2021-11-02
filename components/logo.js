@@ -28,7 +28,7 @@ const Logo = () => {
             ml={6}
             style={{marginLeft:'10px'}}
           >
-            Nanpipat Klinpratoom
+            NANPIPAT
           </Text>
         </LogoBox>
       </a>
