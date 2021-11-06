@@ -62,11 +62,11 @@ const Page = () => {
           and best code practices.
         </Text>
         <Box align="center" my={4}>
-          <NextLink href="#">
+          <Link href="/doc/resume.pdf">
             <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
               Dowload CV
             </Button>
-          </NextLink>
+          </Link>
         </Box>
       </Section>
       <Section delay={0.2}>
