@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
 import { loadGLTFModel } from '../lib/model'
 import { RobotSpinner, RobotContainer } from './voxel-robot-loader'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 function easeOutCirc(x) {
   return Math.sqrt(1 - Math.pow(x - 1, 4))
@@ -11,13 +11,12 @@ function easeOutCirc(x) {
 
 
 
-const VoxelDog = () => {
-  var mixer
+const Client = () => {
   const refContainer = useRef()
   const [loading, setLoading] = useState(true)
   const [renderer, setRenderer] = useState()
   const [_camera, setCamera] = useState()
-  const [target] = useState(new THREE.Vector3(-0.5, 2.5, 0))
+  const [target] = useState(new THREE.Vector3(-0.5, 3, 0))
   const [initialCameraPosition] = useState(
     new THREE.Vector3(
       20 * Math.sin(0.2 * Math.PI),
@@ -26,8 +25,6 @@ const VoxelDog = () => {
     )
   )
   const [scene] = useState(new THREE.Scene())
-  // const [mixer] = useState(new THREE.AnimationMixer)
-  const [clock] = useState(new THREE.Clock())
   const [_controls, setControls] = useState()
 
   const handleWindowResize = useCallback(() => {
@@ -72,7 +69,16 @@ const VoxelDog = () => {
       camera.lookAt(target)
       setCamera(camera)
 
-      const ambientLight = new THREE.AmbientLight(0xcccccc, 1)
+      scene.add(new THREE.AxesHelper(5))
+
+      const light = new THREE.PointLight()
+      light.position.set(0.8, 1.4, 1.0)
+      scene.add(light)
+
+      // const ambientLight = new THREE.AmbientLight(0xcccccc, 1)
+      // scene.add(ambientLight)
+
+      const ambientLight = new THREE.AmbientLight()
       scene.add(ambientLight)
 
       const controls = new OrbitControls(camera, renderer.domElement)
@@ -80,57 +86,43 @@ const VoxelDog = () => {
       controls.target = target
       setControls(controls)
 
-      const loader = new GLTFLoader()
-      const animationActions = []
-      let modelReady = false
-     
-      setLoading(false)
-      loader.load(
-        '/untitled.gltf',
-        (gltf) => {
-          console.log(gltf, "GLTF")
-          var model = gltf.scene;
-          var animations = gltf.animations;
+      // const fbxLoader = new FBXLoader()
+      // fbxLoader.load(
+      //   'mo/top.fbx',
+      //   (object) => {
+      //     mixer = new THREE.AnimationMixer( object );
 
-          model.name = 'dog'
-          model.receiveShadow = true
-          model.castShadow = true
+			// 		const action = mixer.clipAction( object.animations[ 0 ] );
+			// 		action.play();
 
-          scene.add(model);
+			// 		object.traverse( function ( child ) {
 
+			// 			if ( child.isMesh ) {
 
+			// 				child.castShadow = true;
+			// 				child.receiveShadow = true;
 
-          mixer = new THREE.AnimationMixer(model);
+			// 			}
 
-          var action = mixer.clipAction(animations[0]); // access first animation clip
-          action.play();
+			// 		} );
 
-          model.traverse(function (child) {
-                if (child.isMesh) {
-                    child.castShadow = true
-                    child.receiveShadow = true
-                }
-            })
-        },
-        (xhr) => {
-          console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
-          animate()
+			// 		scene.add( object );
+      //   },
+      //   (xhr) => {
+      //     console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+      //   },
+      //   (error) => {
+      //     console.log(error)
+      //   }
+      // )
 
-
-        },
-        (error) => {
-          console.log(error)
-        }
-      )
-
-      // loadGLTFModel(scene,mixer, '/untitled.gltf', {
-      //   receiveShadow: false,
-      //   castShadow: false
-      // }).then(() => {
-      //   animate()
-      //   animate2()
-      //   setLoading(false)
-      // })
+      loadGLTFModel(scene,  '/topweb.glb', {
+        receiveShadow: true,
+        castShadow: true
+      }).then(() => {
+        animate()
+        setLoading(false)
+      })
 
       let req = null
       let frame = 0
@@ -153,25 +145,8 @@ const VoxelDog = () => {
           controls.update()
         }
 
-        var delta = clock.getDelta(); // clock is an instance of THREE.Clock
-        if ( mixer ) mixer.update( delta );
-
         renderer.render(scene, camera)
       }
-
-      const animate2 = () => {
-        requestAnimationFrame(animate)
-
-       controls.update()
-       if (modelReady) mixer.update(clock.getDelta())
-
-       render()
-
-      }
-
-      const render =() => {
-        renderer.render(scene, camera)
-      } 
 
       return () => {
         console.log('unmount')
@@ -193,4 +168,4 @@ const VoxelDog = () => {
   )
 }
 
-export default VoxelDog
+export default Client
