@@ -75,8 +75,15 @@ const VoxelDog = () => {
       const ambientLight = new THREE.AmbientLight(0xcccccc, 1)
       scene.add(ambientLight)
 
+      const light = new THREE.PointLight(0xffffff, 1, 100);
+      light.position.set(0, 10, 4);
+      light.castShadow = true; // default false
+      scene.add(light);
+
+
       const controls = new OrbitControls(camera, renderer.domElement)
       controls.autoRotate = true
+      controls.maxZoom = 1.5
       controls.target = target
       setControls(controls)
 
