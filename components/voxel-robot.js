@@ -72,19 +72,35 @@ const VoxelDog = () => {
       camera.lookAt(target)
       setCamera(camera)
 
+      // const dirLight = new THREE.DirectionalLight(0xffffff, 1)
+      // dirLight.castShadow = true
+      // dirLight.shadow.camera.near = 1;
+      // dirLight.shadow.camera.far = 400000000;
+      // //dirLight.shadow.camera.visible = true;
+  
+      // scene.add(dirLight);
+      // scene.add(new THREE.DirectionalLightHelper(dirLight, 10));
+
       const ambientLight = new THREE.AmbientLight(0xcccccc, 1)
       scene.add(ambientLight)
 
+      // const light = new THREE.PointLight(0xffffff, 1, 100);
+      // light.position.set(0, 10, 4);
+      // light.castShadow = true; // default false
+      // scene.add(light);
+
+     
+
+
       const controls = new OrbitControls(camera, renderer.domElement)
       controls.autoRotate = true
+      controls.maxZoom = 1.5
       controls.target = target
       setControls(controls)
 
       const loader = new GLTFLoader()
-      const animationActions = []
-      let modelReady = false
-     
-      setLoading(false)
+
+      // setLoading(false)
       loader.load(
         '/untitled.gltf',
         (gltf) => {
@@ -92,13 +108,11 @@ const VoxelDog = () => {
           var model = gltf.scene;
           var animations = gltf.animations;
 
-          model.name = 'dog'
+          model.name = 'man'
           model.receiveShadow = true
           model.castShadow = true
 
           scene.add(model);
-
-
 
           mixer = new THREE.AnimationMixer(model);
 
@@ -114,6 +128,7 @@ const VoxelDog = () => {
         },
         (xhr) => {
           console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+          setLoading(false)
           animate()
 
 
@@ -158,20 +173,6 @@ const VoxelDog = () => {
 
         renderer.render(scene, camera)
       }
-
-      const animate2 = () => {
-        requestAnimationFrame(animate)
-
-       controls.update()
-       if (modelReady) mixer.update(clock.getDelta())
-
-       render()
-
-      }
-
-      const render =() => {
-        renderer.render(scene, camera)
-      } 
 
       return () => {
         console.log('unmount')
