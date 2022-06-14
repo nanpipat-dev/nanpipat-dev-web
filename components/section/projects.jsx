@@ -55,7 +55,7 @@ const ProjectsSection = () => {
                         code="https://github.com/nanpipat"
                     />
                     <GridItemNoLive
-                        title="Project 2"
+                        title="Medium Blogs"
                         thumbnail={medium}
                         href="https://medium.com/@nanpipat.k"
                         demo="https://medium.com/@nanpipat.k"
