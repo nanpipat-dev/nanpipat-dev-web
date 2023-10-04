@@ -56,6 +56,33 @@ export const WorkGridItem = ({ children, id, title, thumbnail }) => (
     </Box>
 )
 
+export const GridItemNoLive = ({ children, href, title, thumbnail,demo,code }) => (
+    <Box w="100%" textAlign="center">
+        <LinkBox cursor="pointer">
+            <Image
+                src={thumbnail}
+                alt={title}
+                placeholder="blur"
+                className="grid-item-thumbnail"
+                loading="lazy"
+            />
+            <LinkOverlay href={href} target="_blank">
+                <Text mt={2}>{title}</Text>
+            </LinkOverlay>
+            <Text fontSize={14}>{children}</Text>
+        </LinkBox>
+
+        {/* <div style={{ display: 'flex', alignContent: 'center', justifyContent: 'center', alignItems: 'center' }}>
+            <div style={{ marginRight: '20px' }}>
+                <Link href={demo} target="_blank">
+                    Live
+                </Link>
+            </div>
+        </div> */}
+
+    </Box>
+)
+
 export const GridItemStyle = () => (
     <Global
         styles={`

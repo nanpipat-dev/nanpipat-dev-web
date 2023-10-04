@@ -40,7 +40,7 @@ const Page = () => {
   return (
     <Container maxWidth="100%">
       <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3} mb={6} align="center">
-        Hello, I&apos;m a full-stack developer. and you can call me "Top" ♥
+        Hello, I&apos;m a software developer. and you can call me "Top" ♥
       </Box>
       <Box display={{ md: 'flex' }}>
         <Box flexGrow={1}>
@@ -58,15 +58,15 @@ const Page = () => {
           Bio
         </Heading>
         <Text>
-          I am a fullstack-developer with a vast array of knowledge in many different front-end and back-end languages, responsive frameworks, databases,
+          I am a software developer with a vast array of knowledge in many different front-end and back-end languages, responsive frameworks, databases,
           and best code practices.
         </Text>
         <Box align="center" my={4}>
-          <NextLink href="#">
+          <Link href="/doc/resume.pdf">
             <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
               Dowload CV
             </Button>
-          </NextLink>
+          </Link>
         </Box>
       </Section>
       <Section delay={0.2}>
@@ -75,9 +75,15 @@ const Page = () => {
         </Heading>
         <ExperienceSection />
       </Section>
-      <Section delay={0.3}>
+      {/* <Section delay={0.3}>
         <Heading as="h3" variant="section-title">
           Projects
+        </Heading>
+        <ProjectsSection />
+      </Section> */}
+      <Section delay={0.3}>
+        <Heading as="h3" variant="section-title">
+          Know me more & Coding styles
         </Heading>
         <ProjectsSection />
       </Section>

@@ -21,6 +21,21 @@ const ExperienceSection = () => {
             <Grid my={4} templateColumns="repeat(5,  1fr)">
                 <GridItem colSpan={[2,1,1]}>
                     <Text fontWeight="bold" mr={2}>
+                        Studio Craftsmanship
+                    </Text>
+                    <Text fontSize="smaller" color="teal">
+                        (2021 - Present)
+                    </Text>
+                </GridItem>
+                <GridItem colSpan={[3,4,4]}>
+                    <Text>
+                    E-commerce web applications. Develop for both front-end and back-end systems. Using an agile methodology system in a team.  Work at a middle level.
+                    </Text>
+                </GridItem>
+            </Grid>
+            <Grid my={4} templateColumns="repeat(5,  1fr)">
+                <GridItem colSpan={[2,1,1]}>
+                    <Text fontWeight="bold" mr={2}>
                         Netcube Soft
                     </Text>
                     <Text fontSize="smaller" color="teal">
